@@ -25,7 +25,7 @@ public class JavaSeminar06Application {
 		SpringApplication.run(JavaSeminar06Application.class, args);
 	}
 	
-	@Bean
+	//@Bean
 	public CommandLineRunner testDB(IStudentRepo studRepo, IProfessorRepo profRepo, ICourseRepo courseRepo, IGradesRepo gradeRepo) {
 		
 		return new CommandLineRunner() {
@@ -54,7 +54,7 @@ public class JavaSeminar06Application {
 		
 			
 			
-			};
+			}
 		
 		
 	};
