@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
@@ -18,29 +20,30 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "StudentTable")
+@Table(name = "GradeTable")
 @Entity
-
-public class Student {
+public class Grade {
 	@Setter(value = AccessLevel.NONE)
-	@Column(name = "StId")
+	@Column(name = "gId")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long stId;
+	private long gId;
 	
 	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,10}([ ][A-Z]{1}[a-z]{3,10})?")
-	@Column(name = "Name")
-	private String name;
+	@Min(0)
+	@Max(10)
+	@Column(name = "value")
+	private int value;
 	
 	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,10}([ -][A-Z]{1}[a-z]{3,10})?")
-	@Column(name = "Surname")
-	private String surname;
+	private Student student;
 	
+	@NotNull
+	private Course course;
 	
-	public Student(String name, String surname) {
-		setName(name);
-		setSurname(surname);
+	public Grade(int value, Student student, Course course) {
+		setValue(value);
+		setStudent(student);
+		setCourse(course);
 	}
 }
