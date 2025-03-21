@@ -1,4 +1,4 @@
-package lv.venta.service;
+package lv.venta.model;
 
 import java.util.Collection;
 
@@ -28,7 +28,6 @@ import lombok.ToString;
 @ToString
 @Table(name = "CourseTable")
 @Entity
-
 public class Course {
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "CId")

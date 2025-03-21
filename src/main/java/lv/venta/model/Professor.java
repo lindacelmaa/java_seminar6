@@ -1,17 +1,12 @@
-package lv.venta.service;
+package lv.venta.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
@@ -24,33 +19,36 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "GradeTable")
+@Table(name = "ProfessorTable")
 @Entity
-public class Grade {
+public class Professor {
 	@Setter(value = AccessLevel.NONE)
-	@Column(name = "gId")
+	@Column(name = "PId")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long gId;
+	private long stId;
 	
-
-	@Min(1)
-	@Max(10)
-	@Column(name = "value")
-	private int value;
+	@NotNull
+	@Pattern(regexp = "[A-Z]{1}[a-z]{3,10}([ ][A-Z]{1}[a-z]{3,10})?")
+	@Column(name = "Name")
+	private String name;
 	
+	@NotNull
+	@Pattern(regexp = "[A-Z]{1}[a-z]{3,10}([ -][A-Z]{1}[a-z]{3,10})?")
+	@Column(name = "Surname")
+	private String surname;
 	
-	@ManyToOne
-	@JoinColumn(name = "StId")
-	private Student student;
+	@NotNull
+	@Column(name = "Title")
+	private Degree degree;
 	
-	@ManyToOne
-	@JoinColumn(name = "CId")
+	@ToString.Exclude
+	@OneToOne(mappedBy = "professor")
 	private Course course;
 	
-	public Grade(int value, Student student, Course course) {
-		setValue(value);
-		setStudent(student);
-		setCourse(course);
+	public Professor(String name, String surname, Degree degree) {
+		setName(name);
+		setSurname(surname);
+		setDegree(degree);
 	}
 }
