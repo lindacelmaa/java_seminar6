@@ -42,6 +42,7 @@ public class Professor {
 	@Column(name = "Title")
 	private Degree degree;
 	
+	@ToString.Exclude
 	@OneToOne(mappedBy = "professor")
 	private Course course;
 	

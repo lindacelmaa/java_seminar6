@@ -1,11 +1,15 @@
 package lv.venta.service;
 
+import java.util.Collection;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
@@ -47,6 +51,11 @@ public class Course {
 	@OneToOne
 	@JoinColumn(name = "PId")
 	private Professor professor;
+	
+	@OneToMany
+	@ToString.Exclude
+	@JoinColumn(name = "course")
+	private Collection<Grade> grades;
 	
 	public Course(String title, int cp, Professor professor) {
 		setTitle(title);

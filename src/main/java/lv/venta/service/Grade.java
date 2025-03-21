@@ -5,6 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -29,16 +33,19 @@ public class Grade {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long gId;
 	
-	@NotNull
-	@Min(0)
+
+	@Min(1)
 	@Max(10)
 	@Column(name = "value")
 	private int value;
 	
-	@NotNull
+	
+	@ManyToOne
+	@JoinColumn(name = "StId")
 	private Student student;
 	
-	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "CId")
 	private Course course;
 	
 	public Grade(int value, Student student, Course course) {
