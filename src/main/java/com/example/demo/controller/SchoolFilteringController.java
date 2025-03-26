@@ -1,4 +1,4 @@
-package lv.venta.controller;
+package com.example.demo.controller;
 
 import java.util.ArrayList;
 
@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import lv.venta.model.Grade;
-import lv.venta.service.ISchoolFilteringService;
+import com.example.demo.model.Grade;
+import com.example.demo.service.ISchoolFilteringService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -22,6 +22,7 @@ public class SchoolFilteringController {
 	
 	@GetMapping("/grades/student/{id}")//localhost:8080/school/filtering/grades/student/1
 	public String getControllerGradesByStudent(@PathVariable(name="id") long id, Model model) {
+		System.out.println("kuku");
 		try {
 			ArrayList<Grade> filteredGrades = schoolFiltService.selectGradesByStudentId(id);
 			model.addAttribute("package", filteredGrades);
@@ -32,7 +33,7 @@ public class SchoolFilteringController {
 		}
 		
 	}
-	@GetMapping("/courses/student/{id}")
+	@GetMapping("/courses/student/{id}")//localhost:8080/school/filtering/courses/student/1
 	public String getControllerCoursesByStudent(@PathVariable(name = "id") long id, Model model) {
 		try {
 			ArrayList<Grade> filteredGrades = schoolFiltService.selectGradesByStudentId(id);
@@ -42,4 +43,6 @@ public class SchoolFilteringController {
 			return "show-error";
 		}
 	}
+	
+	
 }

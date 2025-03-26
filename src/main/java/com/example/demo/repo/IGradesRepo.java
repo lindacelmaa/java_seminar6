@@ -1,11 +1,11 @@
-package lv.venta.repo;
+package com.example.demo.repo;
 
 import java.util.ArrayList;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import lv.venta.model.Grade;
+import com.example.demo.model.Grade;
 
 public interface IGradesRepo extends CrudRepository<Grade, Long>{
 	

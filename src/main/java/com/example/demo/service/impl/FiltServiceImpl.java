@@ -1,18 +1,18 @@
-package lv.venta.service.impl;
+package com.example.demo.service.impl;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lv.venta.model.Course;
-import lv.venta.model.Grade;
-import lv.venta.model.Student;
-import lv.venta.repo.ICourseRepo;
-import lv.venta.repo.IGradesRepo;
-import lv.venta.repo.IProfessorRepo;
-import lv.venta.repo.IStudentRepo;
-import lv.venta.service.ISchoolFilteringService;
+import com.example.demo.model.Course;
+import com.example.demo.model.Grade;
+import com.example.demo.model.Student;
+import com.example.demo.repo.ICourseRepo;
+import com.example.demo.repo.IGradesRepo;
+import com.example.demo.repo.IProfessorRepo;
+import com.example.demo.repo.IStudentRepo;
+import com.example.demo.service.ISchoolFilteringService;
 
 @Service
 public class FiltServiceImpl implements ISchoolFilteringService {

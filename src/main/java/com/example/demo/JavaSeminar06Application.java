@@ -7,22 +7,24 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import lv.venta.model.Course;
-import lv.venta.model.Degree;
-import lv.venta.model.Grade;
-import lv.venta.model.Professor;
-import lv.venta.model.Student;
-import lv.venta.repo.ICourseRepo;
-import lv.venta.repo.IGradesRepo;
-import lv.venta.repo.IProfessorRepo;
-import lv.venta.repo.IStudentRepo;
+import com.example.demo.model.Course;
+import com.example.demo.model.Degree;
+import com.example.demo.model.Grade;
+import com.example.demo.model.Professor;
+import com.example.demo.model.Student;
+import com.example.demo.repo.ICourseRepo;
+import com.example.demo.repo.IGradesRepo;
+import com.example.demo.repo.IProfessorRepo;
+import com.example.demo.repo.IStudentRepo;
 
 
 @SpringBootApplication
-@EnableJpaRepositories("lv.venta.repo")
-@EntityScan("lv.venta.model")
+//@EnableJpaRepositories("lv.venta.repo")
+//@EntityScan("lv.venta.model")
+@ComponentScan( basePackages = {"com.example.demo", "com.example.demo.controller", "com.example.demo.model", "com.example.demo.repo", "com.example.demo.service", "com.example.demo.service.impl"} )
 public class JavaSeminar06Application {
 
 	public static void main(String[] args) {

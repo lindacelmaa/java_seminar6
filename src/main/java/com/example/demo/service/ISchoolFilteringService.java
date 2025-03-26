@@ -1,10 +1,10 @@
-package lv.venta.service;
+package com.example.demo.service;
 
 import java.util.ArrayList;
 
-import lv.venta.model.Course;
-import lv.venta.model.Grade;
-import lv.venta.model.Student;
+import com.example.demo.model.Course;
+import com.example.demo.model.Grade;
+import com.example.demo.model.Student;
 
 public interface ISchoolFilteringService {
 	
