@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -56,9 +59,26 @@ public class Course {
 	@JoinColumn(name = "course")
 	private Collection<Grade> grades;
 	
-	public Course(String title, int cp, Professor professor) {
+	@ManyToMany
+	@JoinTable(name = "CourseProfessorTable",
+	joinColumns = @JoinColumn(name = "PId"),
+	inverseJoinColumns = @JoinColumn(name = "CId"))
+	private Collection<Professor> professors = new ArrayList<Professor>();
+	
+	public Course(String title, int cp, Professor ... professors) {
 		setTitle(title);
 		setCp(cp);
-		setProfessor(professor);
+		for(Professor tempP:professors) {
+			addProfessor(tempP);
+		}
+
 	}
+	
+	public void addProfessor(Professor professor) {
+		if(!professors.contains(professor)){
+			professors.add(professor);
+		}
+	}
+	
+	
 }
