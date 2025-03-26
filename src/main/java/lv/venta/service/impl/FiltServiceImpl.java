@@ -72,10 +72,14 @@ public class FiltServiceImpl implements ISchoolFilteringService {
 			throw new Exception("Student does not exist");
 		}
 		
-		//ArrayList<Course> result = courseRepo.find
+		ArrayList<Course> result = courseRepo.findByProfessorPId(id);
+		
+		if(result.isEmpty()) {
+			throw new Exception("There is no course linked to professor");
+		}
+		return result;
 		
 		
-		return null;
 	}
 	@Override
 	public float averageGradeInCourse(long id) throws Exception{
