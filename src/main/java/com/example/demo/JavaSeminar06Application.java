@@ -67,6 +67,8 @@ public class JavaSeminar06Application {
 			Grade g2 = new Grade(8, s2, c2);
 			Grade g3 = new Grade(9, s1, c1);
 			Grade g4 = new Grade(6, s2, c1);
+			Grade g5 = new Grade(6, s1, c3);
+			Grade g6 = new Grade(10, s2, c3);
 			gradeRepo.saveAll(Arrays.asList(g1, g2, g3, g4));
 		
 			
