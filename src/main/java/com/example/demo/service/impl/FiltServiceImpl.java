@@ -73,7 +73,7 @@ public class FiltServiceImpl implements ISchoolFilteringService {
 			throw new Exception("Student does not exist");
 		}
 		
-		ArrayList<Course> result = courseRepo.findByProfessorPid(id);
+		ArrayList<Course> result = courseRepo.findByProfessorsPid(id);
 		
 		if(result.isEmpty()) {
 			throw new Exception("There is no course linked to professor");

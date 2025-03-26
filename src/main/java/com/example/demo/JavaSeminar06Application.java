@@ -45,12 +45,23 @@ public class JavaSeminar06Application {
 			
 			Professor p1 = new Professor("Karlis", "Immers", Degree.magistrs);
 			Professor p2 = new Professor("Karina", "Skirmante", Degree.magistrs);
-			profRepo.saveAll(Arrays.asList(p1, p2));
+			Professor p3 = new Professor("Arturs", "Orbidans", Degree.magistrs);
+			Professor p4= new Professor("Karlis", "Laborants", Degree.bakalaurs);
+			
+			profRepo.saveAll(Arrays.asList(p1, p2, p3, p4));
 			
 			
 			Course c1 = new Course("Programmesana", 4, p2);
 			Course c2 = new Course("Tikla Operetajsistemas", 6, p1);
+			Course c3 = new Course("Datorsistemu Arhitektura", 6, p3, p4);
+			Course c4 = new Course("Datu Strukturas", 3, p1);
 			courseRepo.saveAll(Arrays.asList(c1, c2));
+			
+			p1.addCourse(c2);
+			p1.addCourse(c4);
+			p2.addCourse(c1);
+			p3.addCourse(c3);
+			p4.addCourse(c3);
 			
 			Grade g1 = new Grade(10, s1, c2);
 			Grade g2 = new Grade(8, s2, c2);
