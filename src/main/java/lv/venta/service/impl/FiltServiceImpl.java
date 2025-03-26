@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import lv.venta.model.Course;
 import lv.venta.model.Grade;
+import lv.venta.model.Student;
 import lv.venta.repo.ICourseRepo;
 import lv.venta.repo.IGradesRepo;
 import lv.venta.repo.IProfessorRepo;
@@ -83,6 +84,31 @@ public class FiltServiceImpl implements ISchoolFilteringService {
 	}
 	@Override
 	public float averageGradeInCourse(long id) throws Exception{
-		return 0;
+		if(id <= 0) {
+			throw new Exception("Id should be positive");
+		}
+		if(!courseRepo.existsById(id)) {
+			throw new Exception("Course does not exist");
+		}
+		
+		if(!gradesRepo.existsByCourseCId(id)) {
+			throw new Exception("The course does not have any grades!");
+		}
+		
+		
+		float result = gradesRepo.calculateAVGGradeByCourseId(id);
+		return result;
+	}
+	
+	//visus studentus kuriem ir vismaz viena nesekmiga atzime
+	@Override
+	public ArrayList<Student> allStudentsWithAtLeastOneBadMark() throws Exception{
+		
+		ArrayList<Student> result = studRepo.findByGradesValueLessThan(4);
+		
+		if(result.isEmpty()) {
+			throw new Exception("There is no course linked to professor");
+		}
+		return result;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import lv.venta.model.Course;
 import lv.venta.model.Grade;
+import lv.venta.model.Student;
 
 public interface ISchoolFilteringService {
 	
@@ -13,5 +14,7 @@ public interface ISchoolFilteringService {
 	public abstract ArrayList<Course> selectCoursesByProfessorId(long id) throws Exception;
 	
 	public abstract float averageGradeInCourse(long id) throws Exception;
+	
+	public abstract ArrayList<Student> allStudentsWithAtLeastOneBadMark() throws Exception;
 	
 }
