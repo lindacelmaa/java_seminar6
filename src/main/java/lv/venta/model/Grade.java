@@ -31,7 +31,7 @@ public class Grade {
 	@Column(name = "gId")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long gId;
+	private long gid;
 	
 
 	@Min(1)

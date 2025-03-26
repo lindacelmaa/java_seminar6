@@ -1,0 +1,15 @@
+<html xmlns:th="https://www.tymeleaf.org">
+	
+	<body>
+		<p> Atzimes: <p>
+			<table>
+				<tr th:each = "tempC : ${package}">
+					<td th:text="${tempC.getTitle()}"></td>
+					<td th:text="${tempC.getCp()}"></td>
+					<td th:text="${tempC.getProfessor().getName()}"></td>
+					<td th:text="${tempC.getProfessor().getSurname()}"></td>
+				</tr>
+			</table>
+	</body>
+
+</html>

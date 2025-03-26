@@ -37,7 +37,7 @@ public class FiltServiceImpl implements ISchoolFilteringService {
 		if(!studRepo.existsById(id)) {
 			throw new Exception("Student does not exist");
 		}
-		ArrayList<Grade> result = gradesRepo.findByStudentsStId(id);
+		ArrayList<Grade> result = gradesRepo.findByStudentStid(id);
 		
 		if(result.isEmpty()) {
 			throw new Exception("There is no grade linked to student");
@@ -55,7 +55,7 @@ public class FiltServiceImpl implements ISchoolFilteringService {
 		if(!studRepo.existsById(id)) {
 			throw new Exception("Student does not exist");
 		}
-		ArrayList<Course> result = courseRepo.findByGradesStudentStId(id);
+		ArrayList<Course> result = courseRepo.findByGradesStudentStid(id);
 		
 		if(result.isEmpty()) {
 			throw new Exception("There is no course linked to student");
@@ -73,7 +73,7 @@ public class FiltServiceImpl implements ISchoolFilteringService {
 			throw new Exception("Student does not exist");
 		}
 		
-		ArrayList<Course> result = courseRepo.findByProfessorPId(id);
+		ArrayList<Course> result = courseRepo.findByProfessorPid(id);
 		
 		if(result.isEmpty()) {
 			throw new Exception("There is no course linked to professor");
@@ -91,7 +91,7 @@ public class FiltServiceImpl implements ISchoolFilteringService {
 			throw new Exception("Course does not exist");
 		}
 		
-		if(!gradesRepo.existsByCourseCId(id)) {
+		if(!gradesRepo.existsByCourseCid(id)) {
 			throw new Exception("The course does not have any grades!");
 		}
 		

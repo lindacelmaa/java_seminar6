@@ -38,7 +38,7 @@ public class JavaSeminar06Application {
 			public void run(String... args) throws Exception {
 				
 			Student s1 = new Student("Janis", "Berzins");
-			Student s2 = new Student("Anna", "Kalnina-Kalna");
+			Student s2 = new Student("Anna", "Kalnina");
 			studRepo.saveAll(Arrays.asList(s1, s2));
 			
 			Professor p1 = new Professor("Karlis", "Immers", Degree.magistrs);
@@ -47,7 +47,7 @@ public class JavaSeminar06Application {
 			
 			
 			Course c1 = new Course("Programmesana", 4, p2);
-			Course c2 = new Course("Tikla operetajsistemas", 6, p1);
+			Course c2 = new Course("Tikla Operetajsistemas", 6, p1);
 			courseRepo.saveAll(Arrays.asList(c1, c2));
 			
 			Grade g1 = new Grade(10, s1, c2);

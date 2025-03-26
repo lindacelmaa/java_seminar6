@@ -9,11 +9,11 @@ import lv.venta.model.Grade;
 
 public interface IGradesRepo extends CrudRepository<Grade, Long>{
 	
-	public abstract ArrayList<Grade> findByStudentsStId(long id);
+	public abstract ArrayList<Grade> findByStudentStid(long id);
 
 	@Query(nativeQuery = true, value = "SELECT avg(value) FROM grade_table WHERE cid = ?1;")
 	public abstract float calculateAVGGradeByCourseId(long id);
 
-	public abstract boolean existsByCourseCId(long id);
+	public abstract boolean existsByCourseCid(long id);
 
 }

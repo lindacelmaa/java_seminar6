@@ -32,4 +32,14 @@ public class SchoolFilteringController {
 		}
 		
 	}
+	@GetMapping("/courses/student/{id}")
+	public String getControllerCoursesByStudent(@PathVariable(name = "id") long id, Model model) {
+		try {
+			ArrayList<Grade> filteredGrades = schoolFiltService.selectGradesByStudentId(id);
+			return "show-courses";
+		}catch(Exception e) {
+			model.addAttribute("package", e.getMessage());
+			return "show-error";
+		}
+	}
 }

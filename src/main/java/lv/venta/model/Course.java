@@ -33,7 +33,7 @@ public class Course {
 	@Column(name = "CId")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long stId;
+	private long cid;
 	
 	@NotNull
 	@Pattern(regexp = "[A-Z]{1}[a-z]{3,30}([ ][A-Z]{1}[a-z]{3,30})?")
