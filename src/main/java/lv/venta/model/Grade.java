@@ -24,8 +24,8 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "GradeTable")
 @Entity
+@Table(name = "GradeTable")
 public class Grade {
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "gId")

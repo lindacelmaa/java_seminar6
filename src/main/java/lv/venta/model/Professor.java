@@ -19,8 +19,8 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "ProfessorTable")
 @Entity
+@Table(name = "ProfessorTable")
 public class Professor {
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "PId")
