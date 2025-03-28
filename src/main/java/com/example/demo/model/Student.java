@@ -24,22 +24,13 @@ import lombok.ToString;
 @ToString
 @Table(name = "StudentTable")
 @Entity
-public class Student {
+public class Student extends Person{
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "StId")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long stid;
 	
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,10}([ ][A-Z]{1}[a-z]{3,10})?")
-	@Column(name = "Name")
-	private String name;
-	
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,10}([ -][A-Z]{1}[a-z]{3,10})?")
-	@Column(name = "Surname")
-	private String surname;
 	
 	@ToString.Exclude
 	@OneToMany(mappedBy = "student")
@@ -47,7 +38,6 @@ public class Student {
 	
 	
 	public Student(String name, String surname) {
-		setName(name);
-		setSurname(surname);
+		super(name, surname);
 	}
 }
