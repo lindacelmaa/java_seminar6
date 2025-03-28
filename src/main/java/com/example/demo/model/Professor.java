@@ -19,14 +19,9 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "ProfessorTable")
+//@Table(name = "ProfessorTable")
 @Entity
 public class Professor extends Person {
-	@Setter(value = AccessLevel.NONE)
-	@Column(name = "PId")
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long pid;
 	
 	@NotNull
 	@Column(name = "Title")

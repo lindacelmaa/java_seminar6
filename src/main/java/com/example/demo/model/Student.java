@@ -22,15 +22,9 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "StudentTable")
+//@Table(name = "StudentTable")
 @Entity
 public class Student extends Person{
-	@Setter(value = AccessLevel.NONE)
-	@Column(name = "StId")
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long stid;
-	
 	
 	@ToString.Exclude
 	@OneToMany(mappedBy = "student")

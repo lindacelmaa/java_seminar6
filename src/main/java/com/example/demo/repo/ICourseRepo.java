@@ -8,8 +8,8 @@ import com.example.demo.model.Course;
 
 public interface ICourseRepo extends CrudRepository<Course, Long>{
 
-	public abstract ArrayList<Course> findByGradesStudentStid(long id);
+	public abstract ArrayList<Course> findByGradesStudentPeid(long id);
 
-	public abstract ArrayList<Course> findByProfessorPid(long id);
+	public abstract ArrayList<Course> findByProfessorPeid(long id);
 
 }
